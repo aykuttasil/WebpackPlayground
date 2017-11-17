@@ -74,3 +74,23 @@ Right to left, sass-loader compiles SCSS, css-loader allows us to require the SC
 ```
 
 ---
+
+## Extract SCSS to a Dedicated CSS File
+
+- Right now we are injecting our CSS to the DOM. It would be much more preferable if we had a dedicated styles.css file made for us after compilation from SCSS to CSS.
+
+- Let me introduce a new webpack concept called plugins. Plugins are basically like adding custom functionality on top of our config. We can extract a dedicated CSS file with the help of extract-text-webpack-plugin.
+
+- The plugins option is used to customize the webpack build process in a variety of ways.
+
+- npm install --save-dev extract-text-webpack-plugin
+
+Aşağıdaki adımlar takip edilmelidir.
+
+- We need to require the plugin and save it as a constant.
+- Next we specify a loader for each file ending with a .scss extension (we can use our existing one!)
+- We need to call the ExtractTextWebpackPlugin plugin with a extract() method in the loader.
+- Finally we initialize our plugin constructor with the new keyword and pass our CSS file name as an argument.
+
+---
+
