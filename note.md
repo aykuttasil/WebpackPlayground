@@ -94,3 +94,21 @@ Aşağıdaki adımlar takip edilmelidir.
 
 ---
 
+## Setup webpack-dev-server
+
+- npm i webpack-dev-server --save-dev
+
+- Typing webpack-dev-server -h we can see all the possible configuration parameters. We definitely need to specify our path to webpack.config.js and we surely want to use the --watch and --hot parameters. Hot reload is a really cool feature, we can save our app’s state and while making changes.
+
+
+We have configured our webpack-dev-server but now we need to launch it. How? NPM scripts to the rescue!
+
+Let’s remove our `watch` script and replace it with `start`
+
+Here’s the arguments we’re gonna pass
+
+- `webpack-dev-server` for launching the dev-server
+- `-d` for debug
+- `--hot` for hot-reloading
+- `--config webpack.config.js` we specify our path the the configuration
+- `--watch` for watching file changes in the system
