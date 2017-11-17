@@ -112,3 +112,37 @@ Here’s the arguments we’re gonna pass
 - `--hot` for hot-reloading
 - `--config webpack.config.js` we specify our path the the configuration
 - `--watch` for watching file changes in the system
+
+
+## Minification
+
+Start off by minifying and uglifying our code. Uglifying..? What the hell is that supposed to mean? Are we gonna let a T-Rex eat and squack it out? Allow me to give you an excellent explanation found on Quora.
+
+### Uglify
+Uglify is a JavaScript file minifier. It compresses the file size by removing all the spaces and new lines- which makes the code unreadable able hence ugly. Uglify also joins sentences using comma, changes property access to dot notation (to reduce number of characters), removes dead code and removes console logs. it also simplifies conditional statements (if), Boolean operations, constants, function declarations etc.
+
+- https://www.quora.com/What-does-uglify-mean
+
+
+- npm i uglifyjs-webpack-plugin --save-dev
+
+**webpack.config.js** dosyasında aşağıdaki değişiklikler yapılmalıdır.
+
+- `const UglifyJsPlugin = require('uglifyjs-webpack-plugin');`
+- 
+```
+    plugins:[
+        new ExtractTextWebpackPlugin('styles.css'), // call the ExtractTextWebpackPlugin constructer and name our css file
+        new webpack.optimize.UglifyJsPlugin() // call the Uglify plugin
+    ]
+```
+
+
+**output.js** dosyasını silip **console** dan `webpack` yazarak tekrar oluşturduğumuzda minified edildiğini görebiliriz.
+
+**Not:**
+- It’s not very optimal to uglify each time after changes because of the added memory cost and compile time. We should only uglify on our production servers once we are going to push our code to live. Okay so now what? Glad you asked, follow me!
+- https://www.quora.com/What-does-uglify-mean
+
+---
+
