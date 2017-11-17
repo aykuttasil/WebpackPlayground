@@ -1,9 +1,11 @@
-const webpack = require('webpack')
+const webpack = require('webpack');
+const path = require('path');
 
 let config = {
-    entry: './index.js',
+    entry: './src/index.js',
     output: {
-        filename: 'output.js'
+        path: path.resolve(__dirname, './public'),
+        filename: "output.js"
     },
     module: {
         rules: [{

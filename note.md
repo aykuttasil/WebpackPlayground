@@ -58,3 +58,19 @@ Babel a ne zaman ve ne yapması gerektiğini söylemek için **.babelrc** dosyas
 Right to left, sass-loader compiles SCSS, css-loader allows us to require the SCSS and style-loader injects it to our page.
 
 ---
+
+## Cleaning up time!
+#### Directory Structure
+
+- How about we make a src directory where we store our stylesheets and application logic, public directory for static assets, which the browser gets to read and possibly in the future make a config directory for our webpack configuration.
+
+İlgili dosyaları ilgili klasörlere taşıdıktan sonra **webpack.config.js** dosyasında aşağıda ki değişiklikleri yapıyoruz.
+
+```
+  output: {
+        path: path.resolve(__dirname, './public'),
+        filename: "output.js"
+    }
+```
+
+---
