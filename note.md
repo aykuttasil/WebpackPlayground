@@ -24,4 +24,29 @@ Link: https://webpack.github.io/docs/loaders.html
       }
 ```
 
-      
+---
+
+## babel-preset-es2015
+
+- npm install --save-dev babel-preset-es2015
+- http://babeljs.io/docs/plugins/preset-es2015/
+
+```
+We need to explicitly tell babel what and when to use. We can do that by using .babelrc file and babel preset plugins. I know it’s a lot to swallow but keep learning with me, you are doing great. I won’t dive too deep into babel presets — just know they are a set of predefined rules and we need to pass them to our babel so it knows what to do.
+```
+
+Babel a ne zaman ve ne yapması gerektiğini söylemek için **.babelrc** dosyası oluşturuyoruz.
+
+**babel-preset-es2015**  bize önceden belirlenmiş kuralları kısa yoldan babel a söylememize yarıyor.
+`
+**.babelrc** dosyasına,
+```
+{
+    "presets": [
+        "es2015"
+    ]
+}
+```
+şeklinde ekleme yapıyoruz.
+
+---

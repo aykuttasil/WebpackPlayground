@@ -1,5 +1,8 @@
-const ekranaYaz = () => {
-    document.write("Babelden geldim");
+class Car{
+    manufacturer(car){
+        document.write(`benim bir ${car} var`)
+    }
 }
 
-ekranaYaz();
+const bmw = new Car();
+bmw.manufacturer('bmw');
