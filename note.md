@@ -50,3 +50,11 @@ Babel a ne zaman ve ne yapması gerektiğini söylemek için **.babelrc** dosyas
 şeklinde ekleme yapıyoruz.
 
 ---
+
+## SCSS to CSS compilation
+
+- npm i --save-dev sass-loader node-sass css-loader style-loader
+
+Right to left, sass-loader compiles SCSS, css-loader allows us to require the SCSS and style-loader injects it to our page.
+
+---
