@@ -146,3 +146,38 @@ Uglify is a JavaScript file minifier. It compresses the file size by removing al
 
 ---
 
+## Node Environments
+
+- It’s actually pretty straight forward, there are no tricks. We have the options to choose whether our app is in production or development
+- We can accomplish this by using a command called NODE_ENV=production
+
+- **package.json** dosyasında aşağıdaki değişiklikleri yapmalıyız.
+
+```
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack-dev-server -d --hot --config webpack.config.js --watch",
+    "production":"NODE_ENV=production webpack"
+  }
+```
+
+**Not:**
+- WINDOWS: If you’re on Windows and the production script is not working as intended — try setting your production script like this
+- `“production”: “SET NODE_ENV=production & webpack -p”`
+
+Js dosyalarımızın **uglify** olması için production kontrolü ekliyoruz.
+
+- Uygulamamızı geliştirirken hot reload sebebiyle herhangi bir
+// dosyada yaptığımız değişiklik sonrası projemiz otomatik olarak derlenecektir.
+// Development aşamasında js dosyalarının her seferinde uglify edilmesine gerek olmadığı için
+// bu işlemi sadece production olarak derlediğimizde yapmasını sağlıyoruz
+
+- Bunun için **webpack.config.js** dosyasında aşağıdaki değişikleri yapıyoruz.
+- 
+```
+if (process.env.NODE_ENV === 'production') { 
+    module.exports.plugins.push(
+        new webpack.optimize.UglifyJsPlugin() // call the Uglify plugin
+    );
+}
+```

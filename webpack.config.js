@@ -22,12 +22,11 @@ let config = {
             })
         }]
     },
-    plugins:[
+    plugins: [
         new ExtractTextWebpackPlugin('styles.css'), // call the ExtractTextWebpackPlugin constructer and name our css file
-        new webpack.optimize.UglifyJsPlugin() // call the Uglify plugin
     ],
     devServer: {
-        contentBase: path.resolve(__dirname,'./public'), // A directory or URL to serve HTML content from
+        contentBase: path.resolve(__dirname, './public'), // A directory or URL to serve HTML content from
         historyApiFallback: true, // fallback to /index.html for Single Page Application
         inline: true, // inline mode (set to false to disable including client scripts (like livereload))
         open: true // open default browser while launching
@@ -36,3 +35,13 @@ let config = {
 }
 
 module.exports = config;
+
+// Uygulamamızı geliştirirken hot reload sebebiyle herhangi bir
+// dosyada yaptığımız değişiklik sonrası projemiz otomatik olarak derlenecektir.
+// Development aşamasında js dosyalarının her seferinde uglify edilmesine gerek olmadığı için
+// bu işlemi sadece production olarak derlediğimizde yapmasını sağlıyoruz
+if (process.env.NODE_ENV === 'production') { 
+    module.exports.plugins.push(
+        new webpack.optimize.UglifyJsPlugin() // call the Uglify plugin
+    );
+}
