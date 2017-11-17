@@ -181,3 +181,24 @@ if (process.env.NODE_ENV === 'production') {
     );
 }
 ```
+
+## CSS Minification
+
+- npm i optimize-css-assets-webpack-plugin --save-dev
+
+**webpack.config.js** dosyasında aşağıdaki değişikleri yapıyoruz.
+
+- `npm i optimize-css-assets-webpack-plugin --save-dev`
+- 
+```
+if (process.env.NODE_ENV === 'production') { 
+    module.exports.plugins.push(
+        new webpack.optimize.UglifyJsPlugin(), // call the Uglify plugin
+        new OptimizeCSSAssets()
+    );
+}
+```
+
+---
+
+
