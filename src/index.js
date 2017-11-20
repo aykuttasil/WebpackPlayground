@@ -1,10 +1,7 @@
 require('./assets/style/styles.scss');
 
-class Car{
-    manufacturer(car){
-        document.write(`benim bir ${car} var`)
-    }
-}
+import React from 'react'; // import the main react dependency
+import ReactDOM from 'react-dom'; 
+import App from './app/App.jsx';
 
-const bmw = new Car();
-bmw.manufacturer('bmw');
+ReactDOM.render(<App />,document.getElementById('root'));

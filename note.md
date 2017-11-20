@@ -203,4 +203,5 @@ if (process.env.NODE_ENV === 'production') {
 
 ## Images!
 
-
+- npm i image-webpack-loader file-loader --save-dev
+- npm i react react-dom babel-preset-react --save-dev
