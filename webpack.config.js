@@ -23,10 +23,10 @@ let config = {
                 loader: "babel-loader" // use this (babel-core) loader
             }, {
                 test: /\.scss$/, // files ending with .scss
-                use: ExtractTextWebpackPlugin.extract({ // call our plugin with extract method
+                use: ['css-hot-loader'].concat(ExtractTextWebpackPlugin.extract({ // call our plugin with extract method
                     use: ['css-loader', 'sass-loader'], // use these loaders
                     fallback: 'style-loader' // fallback for ant CSS not extracted
-                })
+                }))
             }, {
                 test: /\.jsx$/, // all files ending with .jsx
                 loader: 'babel-loader', // use the babel-loader for all .jsx files

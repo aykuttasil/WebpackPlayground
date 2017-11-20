@@ -217,3 +217,22 @@ if (process.env.NODE_ENV === 'production') {
 ```
 
 Ve artık `import aykut from 'images/aykut.png';` şeklinde path belirtebiliriz.
+
+---
+
+## CSS Hot Loader
+- npm i css-hot-loader -D (-D stands for development dependency (short for --save-dev)
+- 
+```
+{
+                test: /\.scss$/, // files ending with .scss
+                use: ['css-hot-loader'].concat(ExtractTextWebpackPlugin.extract({ // call our plugin with extract method
+                    use: ['css-loader', 'sass-loader'], // use these loaders
+                    fallback: 'style-loader' // fallback for ant CSS not extracted
+                }))
+}
+```
+
+Artık .scss dosyasında yaptığımız değişiklik sonrası sayfamız otomatik olarak yenilenecek.
+
+---
