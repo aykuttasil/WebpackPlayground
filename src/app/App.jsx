@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import aykut from 'images/aykut.png';
 
 const HelloReact = () => {
     return (
         <div>
             <h3> Hello from my React Component ...</h3>
+            <img src={aykut} />
         </div>
     )
 }

@@ -205,3 +205,15 @@ if (process.env.NODE_ENV === 'production') {
 
 - npm i image-webpack-loader file-loader --save-dev
 - npm i react react-dom babel-preset-react --save-dev
+
+- webpack.config.js dosyasına aşağıdaki bloğu ekliyoruz
+```
+ resolve: {
+        extensions: ['.js', '.jsx', '.json', 'scss', '.css', '.jpeg', '.jpg', '.gif', '.png'],
+        alias: {
+            images: path.resolve(__dirname, 'src/assets/images')
+        }
+    }
+```
+
+Ve artık `import aykut from 'images/aykut.png';` şeklinde path belirtebiliriz.
