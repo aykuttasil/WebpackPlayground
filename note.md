@@ -236,3 +236,32 @@ Ve artık `import aykut from 'images/aykut.png';` şeklinde path belirtebiliriz.
 Artık .scss dosyasında yaptığımız değişiklik sonrası sayfamız otomatik olarak yenilenecek.
 
 ---
+
+## Auto Prefixer
+- npm i -D autoprefixer postcss-loader
+- package.json
+```
+"scripts": {
+    "build": "webpack --progress",
+    "start": "webpack --progress && webpack-dev-server -d --hot --config webpack.config.js --watch",
+    "production": "NODE_ENV=production webpack"
+  }
+ ``` 
+ - postcss.config.js dosyası oluşturarak aşağıdaki bloğu ekliyoruz.
+ ```
+ module.exports = {
+    plugins: [
+        require('autoprefixer')
+    ]
+}
+```
+- webpack.config.js dosyasını aşağıdaki şekilde güncelliyoruz
+```
+{
+                test: /\.scss$/, // files ending with .scss
+                use: ['css-hot-loader'].concat(ExtractTextWebpackPlugin.extract({ // call our plugin with extract method
+                    use: ['css-loader', 'sass-loader','postcss-loader'], // use these loaders
+                    fallback: 'style-loader' // fallback for ant CSS not extracted
+                }))
+}
+```

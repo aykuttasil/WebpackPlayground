@@ -3,7 +3,7 @@ import aykut from 'images/aykut.png';
 
 const HelloReact = () => {
     return (
-        <div>
+        <div className="container">
             <h3> Hello from my React Component ...</h3>
             <img src={aykut} />
         </div>
